@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const appts = require("../controllers/appts");
 
-router.get("/", appts.getAllappts);
-router.get("/:id", appts.getOneUser);
-router.post("/", appts.addOneUser);
-router.patch("/:id", appts.updateOneUser);
-router.delete("/:id", appts.removeOneUser);
+router.get("/", appts.getAllAppts);
+router.get("/:id", appts.getOneAppt);
+router.post("/", appts.addOneAppt);
+router.patch("/:id", appts.updateOneAppt);
+router.delete("/:id", appts.removeOneAppt);
 
 module.exports = router;
