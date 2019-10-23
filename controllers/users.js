@@ -1,12 +1,13 @@
 const knex = require("../db/knex");
 
+//get all
 exports.getAllUsers = function(req, res) {
   knex
     .select()
     .table("users")
     .then(users => res.json(users));
 };
-
+//get one
 exports.getOneUser = function(req, res) {
   knex
     .select()
@@ -14,14 +15,14 @@ exports.getOneUser = function(req, res) {
     .where("id", req.params.id)
     .then(user => res.json(user));
 };
-
+//add one
 exports.addOneUser = function(req, res) {
   knex("user")
     .insert(req.body)
     .returning("*")
     .then(newUser => res.json(newUser));
 };
-
+//modify one
 exports.updateOneUser = function(req, res) {
   knex("user")
     .update(req.body)
@@ -29,7 +30,7 @@ exports.updateOneUser = function(req, res) {
     .returning("*")
     .then(updatedUser => res.json(updatedUser));
 };
-
+//delete one
 exports.removeOneUser = function(req, res) {
   knex("user")
     .del()
